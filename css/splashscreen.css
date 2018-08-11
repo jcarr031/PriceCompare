@@ -1,0 +1,16 @@
+div#splashscreen {
+    position   : absolute;
+    left       : 0;
+    top        : 0;
+    z-index    : 1;
+    background : #3E096F;
+    width      : 100%;
+    height     : 100%;
+    margin     : 0;
+}
+
+img#splashImage {
+    position : absolute;
+    bottom   : 0;
+    width    : 100%;
+}

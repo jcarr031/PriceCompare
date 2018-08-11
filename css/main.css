@@ -1,0 +1,30 @@
+body {
+    margin : 0;
+    /*font-size : 16px;*/
+}
+
+div#header {
+    text-align : center;
+    background : #3E096F;
+    color      : #DDDDDD;
+    padding    : 10px;
+}
+
+div#mainPage h3 {
+    margin : 0;
+}
+
+div#addButton {
+    position      : absolute;
+    bottom        : 10px;
+    right         : 10px;
+    width         : 30px;
+    height        : 30px;
+    border-radius : 30px;
+    padding       : 3px;
+    background    : #3E096F;
+}
+
+img#addImage {
+    width : 100%;
+}

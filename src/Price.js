@@ -1,31 +1,32 @@
 //Price compare
 app = {
-    metaData  : {
-        unitNames         : {
-            grams      : 'grams',
-            ounces     : 'ounces',
-            pounds     : 'pounds',
-            milligrams : 'milligrams',
-            kilograms  : 'kilograms'
+    metaData : {
+        unitNames        : {
+            grams     : 'grams',
+            ounces    : 'ounces',
+            pounds    : 'pounds',
+            milligrams: 'milligrams',
+            kilograms : 'kilograms'
         },
-        conversionFactors : {
-            grams  : {
-                ounces     : 0.035274,
-                pounds     : 0.00220462,
-                kilograms  : 0.001,
-                milligrams : 1000
+        conversionFactors: {
+            grams : {
+                ounces    : 0.035274,
+                pounds    : 0.00220462,
+                kilograms : 0.001,
+                milligrams: 1000
             },
-            ounces : {
-                grams      : 28.3495,
-                pounds     : 0.0625,
-                kilograms  : 0.0283495,
-                milligrams : 28349.5
+            ounces: {
+                grams     : 28.3495,
+                pounds    : 0.0625,
+                kilograms : 0.0283495,
+                milligrams: 28349.5
             }
         }
     },
-    Utilities : {
-        getFoodItems        : function () {},
-        compareItemCosts    : function (item1, item2) {
+    Utilities: {
+        getFoodItems       : function () {
+        },
+        compareItemCosts   : function (item1, item2) {
             let item1Price    = item1.info.price,
                 item2Price    = item2.info.price,
                 item1Units    = item1.info.units,
@@ -52,7 +53,7 @@ app = {
             return pricePerUnit1 < pricePerUnit2;
 
         },
-        convertUnits        : function (item, newUnitName) {
+        convertUnits       : function (item, newUnitName) {
             let conversionFactor = app.Utilities.getConversionFactor(item.info.unitName, newUnitName);
 
             if (!conversionFactor) {
@@ -61,24 +62,25 @@ app = {
 
             return item.info.units * conversionFactor;
         },
-        getConversionFactor : function (unit1, unit2) {
+        getConversionFactor: function (unit1, unit2) {
             return app.metaData.conversionFactors[unit1][unit2];
         },
-        addNewItem          : function (params) {
+        addNewItem         : function (params) {
             app.Items.push({
-                               name  : params.name,
-                               id    : new Date().getTime(),
-                               brand : params.brand,
-                               info  : {
-                                   price    : params.price,
-                                   units    : params.units,
-                                   unitName : params.unitName
-                               }
-                           });
+                name : params.name,
+                id   : new Date().getTime(),
+                brand: params.brand,
+                info : {
+                    price   : params.price,
+                    units   : params.units,
+                    unitName: params.unitName
+                }
+            });
         },
-        editFood            : function () {}
+        editFood           : function () {
+        }
     },
-    Items     : [
+    Items    : [
         /*Template for item
             {
             name : 'Item',
@@ -90,27 +92,3 @@ app = {
         }*/
     ]
 };
-$(document).ready(function () {
-    setTimeout(function () {
-        app.Utilities.addNewItem({
-                                     name     : 'Bread',
-                                     price    : 3.00,
-                                     units    : 200,
-                                     unitName : 'grams'
-                                 });
-    }, 500);
-
-    setTimeout(function () {
-        app.Utilities.addNewItem({
-                                     name     : 'Bread',
-                                     price    : 3.69,
-                                     units    : 16,
-                                     unitName : 'ounces'
-                                 });
-    }, 500);
-
-    setTimeout(function () {
-        let item1 = app.Items[0], item2 = app.Items[1];
-        alert('Is Item One Cheaper?' + app.Utilities.compareItemCosts(item1, item2));
-    }, 500);
-});

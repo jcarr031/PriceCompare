@@ -7,13 +7,37 @@
     <title>The HTML5 Herald</title>
     <meta name="description" content="PriceCompare">
     <meta name="author" content="Jonathan Carr">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Library Scripts-->
     <script src="lib/jquery-3.3.1.min.js"></script>
-    <!--<link rel="stylesheet" href="css/styles.css">-->
+    <!--Styles-->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/splashscreen.css">
 
 </head>
 
 <body>
+<!--Project Scripts-->
 <script src="src/Price.js"></script>
-<h3>PriceCompare</h3>
+<script src="src/Utilities.js"></script>
+<script src="src/init.js"></script>
+<!--End Project Scripts-->
+<!--Splashscreen-->
+<div id="splashscreen">
+    <img id="splashImage" src="res/images/splashImage.png">
+</div>
+<!--End Splashscreen-->
+<!--MainPage-->
+<div id="mainPage">
+    <div id="header">
+        <h3>PriceCompare</h3>
+    </div>
+
+
+    <div id="addButton">
+        <img id="addImage" src="res/images/plus.png"/>
+    </div>
+</div>
+<!--End Main Page-->
 </body>
 </html>
